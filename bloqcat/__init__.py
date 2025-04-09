@@ -24,7 +24,7 @@ from . import api
 from .api import jwt
 
 
-# change this to change tha flask app name and the config env var prefix
+# change this to change the flask app name and the config env var prefix
 # must not contain any spaces!
 APP_NAME = __name__
 CONFIG_ENV_VAR_PREFIX = APP_NAME.upper().replace("-", "_").replace(" ", "_")
