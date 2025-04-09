@@ -2,6 +2,27 @@
 
 This service is used for aggregating Quantumcomputing Pattern concrete solutions.
 
+Features
+
+QASM3 Parsing: Parses quantum circuits written in OpenQASM 3 format.
+
+Circuit Combination: Supports merging and optimizing multiple QASM3 circuits.
+
+Custom Operations: Allows injecting custom quantum gates and transformations.
+
+Error Handling & Validation: Ensures circuit integrity and compliance with QASM3 standards.
+
+API Support: Provides an API for interacting with circuit processing functions.
+
+Installation
+
+Ensure you have Python 3.8+ installed. Then, clone the repository and install dependencies:
+# Clone the repository
+git clone https://github.com/your-org/LEQO-Framework.git
+cd LEQO-Framework/bloqCat-modeling
+
+# Install dependencies
+pip install -r requirements.txt
 ---
 
 This project is based on the [flask-template](https://github.com/buehlefs/flask-template) project. The template documentation can be found in `docs/templatedocumention.md`
@@ -18,6 +39,13 @@ This project is based on the [flask-template](https://github.com/buehlefs/flask-
     poetry run flask run
     ```
 
+Contribution Guidelines
+
+Fork the repository and create a new branch.
+
+Ensure your changes pass all tests.
+
+Submit a pull request with a clear description.
 
 ## Disclaimer of Warranty
 

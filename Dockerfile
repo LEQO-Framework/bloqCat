@@ -13,6 +13,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 RUN python3 -m pip install --user pipx && \
     python3 -m pipx ensurepath && \
     pipx install poetry && \
+    python -m pip install poetry poetry-plugin-export && \
     poetry config virtualenvs.create false && \
     poetry install --no-interaction --no-ansi
 
