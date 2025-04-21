@@ -138,6 +138,8 @@ class TopologyView(MethodView):
             if r.get("name") == "Aggregation"
             and r["sourceElement"]["ref"] in concrete_solution_nodes
             and r["targetElement"]["ref"] in concrete_solution_nodes
+            and "kvproperties" in concrete_solution_nodes[r["sourceElement"]["ref"]]["properties"]
+            and "kvproperties" in concrete_solution_nodes[r["targetElement"]["ref"]]["properties"]
         ]
 
         # Checking the number of qubits for each valid relationship

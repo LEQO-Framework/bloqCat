@@ -18,6 +18,107 @@ This project is based on the [flask-template](https://github.com/buehlefs/flask-
     poetry run flask run
     ```
 
+---
+
+## REST API
+
+### 🌐 Root Endpoints
+
+- `GET /api/v1/`
+  - Returns available top-level API routes.
+  - **Response example:**
+    ```json
+    {
+      "auth": "/api/v1/auth/",
+      "bloqcat": "/api/v1/bloqcat/"
+    }
+    ```
+
+- `GET /api/v1/auth/`
+  - Lists authentication-related endpoints.
+  - **Response example:**
+    ```json
+    {
+      "login": "/api/v1/auth/login/",
+      "refresh": "/api/v1/auth/refresh/",
+      "whoami": "/api/v1/auth/whoami/"
+    }
+    ```
+
+- `GET /api/v1/bloqcat/`
+  - Lists Bloqcat-specific endpoints.
+  - **Response example:**
+    ```json
+    {
+      "deploy": "/api/v1/bloqcat/winery/topology/deploy/json"
+    }
+    ```
+
+---
+
+### 🔐 Authentication Endpoints
+
+- `POST /api/v1/auth/login/`
+  - Login with credentials to receive JWT tokens.
+  - **Request body:**
+    ```json
+    {
+      "username": "your_user",
+      "password": "your_password"
+    }
+    ```
+  - **Response:**
+    ```json
+    {
+      "access_token": "token",
+      "refresh_token": "token"
+    }
+    ```
+
+- `POST /api/v1/auth/refresh/`
+  - Uses a refresh token to obtain a new access token.
+  - **Headers:** `Authorization: Bearer <refresh_token>`
+  - **Response:**
+    ```json
+    {
+      "access_token": "new_access_token"
+    }
+    ```
+
+- `GET /api/v1/auth/whoami/`
+  - Returns the currently authenticated user.
+  - **Headers:** `Authorization: Bearer <access_token>`
+  - **Response:**
+    ```json
+    {
+      "username": "your_user"
+    }
+    ```
+
+---
+
+### ⚙️ Bloqcat Endpoint
+
+- `POST /api/v1/bloqcat/winery/topology/deploy/json`
+  - Accepts a JSON topology (node and relationship templates), validates it, and returns a `.qasm` file.
+  - **Request body:**
+    ```json
+    {
+      "nodeTemplates": [...],
+      "relationshipTemplates": [...]
+    }
+    ```
+  - **Response:** `.qasm` file with aggregated content.
+  - **Typical use:** Deployment of a quantum pattern topology into a runnable solution.
+
+---
+
+### 🌐 Interactive API Documentation
+
+- Swagger UI : http://localhost:5000/api/swagger-ui – Explore and test API endpoints interactively.
+- RapiDoc : http://localhost:5000/api/rapidoc – Alternative interface for API exploration.
+
+> **Note**: Replace `localhost:5000` with your actual host and port if deploying elsewhere.
 
 ## Disclaimer of Warranty
 
