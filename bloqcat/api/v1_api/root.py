@@ -30,5 +30,5 @@ class RootView(MethodView):
         return RootData(
             auth=url_for("api-v1.AuthRootView", _external=True),
             swagger_ui="/api/swagger-ui",
-            rapidoc="/api/rapidoc"
+            rapidoc="/api/rapidoc",
         )
