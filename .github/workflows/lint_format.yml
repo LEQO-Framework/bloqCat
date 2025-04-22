@@ -8,21 +8,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup python
         uses: actions/setup-python@v4
         with:
           python-version: 3.11.0
+
       - name: Install black and flake8
         run: python -m pip install black flake8
-      - name: Debug line endings for flagged files
+        
+      - name: Normalize line endings to LF
         run: |
-          echo "==> File info:"
-          file bloqcat/db/__init__.py
-          file docs/conf.py
-          echo "==> First few lines with control characters:"
-          cat -A bloqcat/db/__init__.py | head -n 5
-          cat -A docs/conf.py | head -n 5
+          sudo apt-get update
+          sudo apt-get install -y dos2unix
+          dos2unix bloqcat/db/__init__.py docs/conf.py
+
       - name: Run flake8
         run: flake8
+
       - name: Run black
         run: black --check --verbose --extend-exclude=".resources." .
