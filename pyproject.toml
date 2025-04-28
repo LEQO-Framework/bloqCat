@@ -46,6 +46,7 @@ pip-licenses = "^5.0.0"
 target-version = ["py38"]
 line-length = 90
 include = '\.pyi?$'
+extend-exclude = ".resources."
 
 [tool.isort]
 profile = "black"

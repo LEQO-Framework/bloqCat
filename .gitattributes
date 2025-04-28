@@ -1,0 +1,6 @@
+# Normalize all Python files to LF
+*.py text eol=lf
+
+# Optional: force other types to LF as well
+*.toml text eol=lf
+*.md text eol=lf
