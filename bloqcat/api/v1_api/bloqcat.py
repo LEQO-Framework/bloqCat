@@ -19,6 +19,12 @@ class TopologyView(MethodView):
         # Parse the JSON topology file from the request body
         try:
             data = request.json
+            expected_format = {
+                "nodeTemplates": "List of at least 2 nodes with Concrete Solution of ...",
+                "relationshipTemplates": "List of at least 1 Aggregation relationship",
+            }
+            print("Expected format:", expected_format)
+            print("Received payload:", data)
         except ET.ParseError as e:
             return f"Invalid JSON data: {str(e)}", HTTPStatus.BAD_REQUEST
 
