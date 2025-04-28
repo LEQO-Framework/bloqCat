@@ -12,10 +12,13 @@ jobs:
       - name: Setup python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11.0
+          python-version: '3.8'
 
-      - name: Install black and flake8
-        run: python -m pip install black flake8
+      - name: Install Poetry
+        run: pip install poetry
+
+      - name: Install dependencies via Poetry
+        run: poetry install
         
       - name: Normalize line endings to LF
         run: |
@@ -24,7 +27,7 @@ jobs:
           dos2unix bloqcat/db/__init__.py docs/conf.py
 
       - name: Run flake8
-        run: flake8
+        run: poetry run flake8
 
       - name: Run black
-        run: black --check --verbose --extend-exclude=".resources." .
+        run: poetry run black --check --verbose --extend-exclude=".resources." .
