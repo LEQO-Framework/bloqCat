@@ -18,6 +18,10 @@ This project is based on the [flask-template](https://github.com/buehlefs/flask-
     poetry run flask run
     ```
 
+Architecture Diagram:
+
+![alt text](image.png)
+
 
 ## Disclaimer of Warranty
 
