@@ -15,6 +15,14 @@ Welcome to BloQCat documentation!
    use-case
    templatedocumentation
    cli
+   
+   project_introduction/overview
+   architecture_documentation/system_design
+   contribution_guidelines_documentation/contributing
+   tutorials/first_steps
+   resources/references
+
+
 
 `Api documentation <api.html>`_
 
